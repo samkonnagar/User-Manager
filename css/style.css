@@ -1,6 +1,7 @@
-*{
+* {
     box-sizing: border-box;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,7 +64,7 @@ form {
     background-color: #218838;
 }
 
-.user-heading{
+.user-heading {
     text-align: center;
 }
 
@@ -118,6 +119,34 @@ form {
 
 .pagination button:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+.user-buttons {
+    padding: .5rem;
+}
+
+.user-buttons>button {
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #f9f9fb;
+}
+
+.user-edit {
+    background-color: #28a745;
+}
+
+.user-edit:hover {
+    background-color: #218838;
+}
+
+.user-delete {
+    background-color: #ff4800;
+}
+
+.user-delete:hover {
+    background-color: #b33f00;
 }
 
 

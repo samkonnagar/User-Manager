@@ -56,6 +56,10 @@
                 <p>Email: john.doe@example.com</p>
                 <p>Job Role: Software Engineer</p>
                 <p>Gender: Male</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
             <div class="user-card">
                 <h3>Jane Smith</h3>
@@ -63,6 +67,10 @@
                 <p>Email: jane.smith@example.com</p>
                 <p>Job Role: Designer</p>
                 <p>Gender: Female</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
             <div class="user-card">
                 <h3>Chris Lee</h3>
@@ -70,6 +78,10 @@
                 <p>Email: chris.lee@example.com</p>
                 <p>Job Role: Product Manager</p>
                 <p>Gender: Male</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
             <div class="user-card">
                 <h3>John Doe</h3>
@@ -77,6 +89,10 @@
                 <p>Email: john.doe@example.com</p>
                 <p>Job Role: Software Engineer</p>
                 <p>Gender: Male</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
             <div class="user-card">
                 <h3>Jane Smith</h3>
@@ -84,6 +100,10 @@
                 <p>Email: jane.smith@example.com</p>
                 <p>Job Role: Designer</p>
                 <p>Gender: Female</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
             <div class="user-card">
                 <h3>Chris Lee</h3>
@@ -91,6 +111,10 @@
                 <p>Email: chris.lee@example.com</p>
                 <p>Job Role: Product Manager</p>
                 <p>Gender: Male</p>
+                <div class="user-buttons">
+                    <button class="user-edit">Edit</button>
+                    <button class="user-delete">Delete</button>
+                </div>
             </div>
 
 
