@@ -1,3 +1,14 @@
+<?php
+require_once 'connect.php';
+
+$sql = "SELECT * FROM `employee` LIMIT 0, 6";
+$res = mysqli_query($conn, $sql);
+if (!$res) {
+    header("location: wrong.html");
+}
+$noOfEmployeesWeGet = mysqli_num_rows($res);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,73 +61,44 @@
         <h2 class="user-heading">Users</h2>
         <div class="user-list" id="userList">
 
+        <?php
+        if ($noOfEmployeesWeGet) {
+            while ($data = mysqli_fetch_assoc($res)) { 
+            $short_gender = $data['gender'];
+            $gender;
+            switch ($short_gender) {
+                case 'M':
+                    $gender = "Male";
+                    break;
+                case 'F':
+                    $gender = "Female";
+                    break;
+                case 'O':
+                    $gender = "Other";
+                    break;
+                default:
+                    $gender = "Unknown";
+                    break;
+            }
+        ?>
             <div class="user-card">
-                <h3>John Doe</h3>
-                <p>Age: 30</p>
-                <p>Email: john.doe@example.com</p>
-                <p>Job Role: Software Engineer</p>
-                <p>Gender: Male</p>
+                <h3><?php echo $data['name'] ?></h3>
+                <p>Age: <?php echo $data['age'] ?></p>
+                <p>Email: <?php echo $data['email'] ?></p>
+                <p>Job Role: <?php echo $data['job_role'] ?></p>
+                <p>Gender: <?php echo $gender ?></p>
                 <div class="user-buttons">
                     <button class="user-edit">Edit</button>
                     <button class="user-delete">Delete</button>
                 </div>
             </div>
-            <div class="user-card">
-                <h3>Jane Smith</h3>
-                <p>Age: 27</p>
-                <p>Email: jane.smith@example.com</p>
-                <p>Job Role: Designer</p>
-                <p>Gender: Female</p>
-                <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
-                </div>
-            </div>
-            <div class="user-card">
-                <h3>Chris Lee</h3>
-                <p>Age: 35</p>
-                <p>Email: chris.lee@example.com</p>
-                <p>Job Role: Product Manager</p>
-                <p>Gender: Male</p>
-                <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
-                </div>
-            </div>
-            <div class="user-card">
-                <h3>John Doe</h3>
-                <p>Age: 30</p>
-                <p>Email: john.doe@example.com</p>
-                <p>Job Role: Software Engineer</p>
-                <p>Gender: Male</p>
-                <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
-                </div>
-            </div>
-            <div class="user-card">
-                <h3>Jane Smith</h3>
-                <p>Age: 27</p>
-                <p>Email: jane.smith@example.com</p>
-                <p>Job Role: Designer</p>
-                <p>Gender: Female</p>
-                <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
-                </div>
-            </div>
-            <div class="user-card">
-                <h3>Chris Lee</h3>
-                <p>Age: 35</p>
-                <p>Email: chris.lee@example.com</p>
-                <p>Job Role: Product Manager</p>
-                <p>Gender: Male</p>
-                <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
-                </div>
-            </div>
-
+        <?php
+        }
+    }
+    else {
+        echo "<div class='user-card'>Employee Not Found</div>";
+    }
+        ?>
 
         </div>
         
