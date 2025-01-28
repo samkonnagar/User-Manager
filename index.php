@@ -1,7 +1,20 @@
 <?php
 require_once 'connect.php';
 
-$sql = "SELECT * FROM `employee` LIMIT 0, 6";
+$pageNo = 1;
+if (isset($_GET['page'])) {
+    $no = (int) $_GET['page'];
+    if (is_integer($no) && $no > 0) {
+        $pageNo = $no;
+    }
+    else{
+        header('location: wrong.html');
+        exit();
+    }
+}
+$noOfItem = 6;
+$noOfItemSkiped = ($pageNo - 1) * $noOfItem;
+$sql = "SELECT * FROM `employee` LIMIT $noOfItemSkiped, $noOfItem";
 $res = mysqli_query($conn, $sql);
 if (!$res) {
     header("location: wrong.html");
@@ -103,11 +116,19 @@ $noOfEmployeesWeGet = mysqli_num_rows($res);
         </div>
         
         <div class="pagination" id="pagination">
-            <button id="prevPage" disabled>Previous</button>
-            <button id="nextPage">Next</button>
+            <button id="prevPage" onclick="changePage(<?php echo $pageNo - 1 ?>)">Previous</button>
+            <button id="nextPage" onclick="changePage(<?php echo $pageNo + 1 ?>)">Next</button>
         </div>
     </div>
 
     
+
+    <script>
+        function changePage(no) {
+            if (no > 0) {
+                location.assign(`index.php?page=${no}`)
+            }
+        }
+    </script>
 </body>
 </html>
