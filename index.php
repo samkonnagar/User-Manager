@@ -29,9 +29,18 @@ $noOfEmployeesWeGet = mysqli_num_rows($res);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Manager</title>
     <link rel="stylesheet" href="css/style.css">
-  
 </head>
 <body>
+    <?php
+    if (isset($_GET['message'])) {
+
+    ?>
+    <div id="message">
+        <span><?php echo $_GET['message'] ?></span><span onclick="location.replace('index.php')">X</span>
+    </div>
+    <?php
+    }
+    ?>
     <div class="container">
         <h1>User Manager</h1>
 
@@ -102,7 +111,7 @@ $noOfEmployeesWeGet = mysqli_num_rows($res);
                 <p>Gender: <?php echo $gender ?></p>
                 <div class="user-buttons">
                     <button class="user-edit">Edit</button>
-                    <button class="user-delete">Delete</button>
+                    <button class="user-delete" onclick="handleDeletePop(<?php echo $data['id'] ?>)">Delete</button>
                 </div>
             </div>
         <?php
@@ -127,6 +136,13 @@ $noOfEmployeesWeGet = mysqli_num_rows($res);
         function changePage(no) {
             if (no > 0) {
                 location.assign(`index.php?page=${no}`)
+            }
+        }
+
+        function handleDeletePop(id) {
+            const ans = confirm("Do You Want To Delete This User?")
+            if (ans) {
+                location.assign(`deleteback.php?did=${id}`)
             }
         }
     </script>
