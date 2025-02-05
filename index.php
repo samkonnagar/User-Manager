@@ -110,7 +110,7 @@ $noOfEmployeesWeGet = mysqli_num_rows($res);
                 <p>Job Role: <?php echo $data['job_role'] ?></p>
                 <p>Gender: <?php echo $gender ?></p>
                 <div class="user-buttons">
-                    <button class="user-edit">Edit</button>
+                    <button class="user-edit" onclick="location.assign('edit.php?eid=<?php echo $data['id'] ?>')">Edit</button>
                     <button class="user-delete" onclick="handleDeletePop(<?php echo $data['id'] ?>)">Delete</button>
                 </div>
             </div>
